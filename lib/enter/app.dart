@@ -16,7 +16,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "邻里",
       theme: LinliTheme.lightLinliTheme.data,
-      routes: Router.routes,
+      routes: Router.getRoutes(),
       localizationsDelegates: [ //本地化支持
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
