@@ -1,21 +1,29 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:linli/pages/tourist/tourist_home_page.dart';
-import 'package:linli/pages/user/user_home_page.dart';
+import 'package:linli/enter/home.dart';
+import 'package:linli/pages/tourist/tourist_index_page.dart';
+import 'package:linli/scoped_model/global_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class Router {
 
-  static Map<String, WidgetBuilder> _userHomePages = {
-    "/": (context) => UserHomePage()
-  };
+  static Widget home = ScopedModel<GlobalModel>(
+    model: GlobalModel(),
+    child: ScopedModelDescendant<GlobalModel>(
+        builder: (buildContext, child, globalModel) {
+          globalModel.judgeLogin();
+          return Home();
+        }
+    ),
+  );
 
-  static Map<String, WidgetBuilder> _touristHomePages = {
-    "/tourist/home": (context) => TouristHomePage()
-  };
-
-  static Map<String, WidgetBuilder> getRoutes() {
-    Map<String, WidgetBuilder> routes = {};
-    routes.addAll(_userHomePages);
-    routes.addAll(_touristHomePages);
-    return routes;
+  static Route<dynamic> buildRoutes(RouteSettings settings) {
+    switch (settings.name) {
+      case "/tourist/index":
+        return MaterialPageRoute(builder: (context) => TouristIndexPage());
+      default:
+        return MaterialPageRoute(builder: (context) => Home());
+    }
   }
 }

@@ -8,7 +8,17 @@ class TouristHomePage extends StatefulWidget {
 class _TouristHomePageState extends State<TouristHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("游客"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () => Navigator.of(context).pushNamed("/tourist/index"),
+          child: Text("游客"),
+        ),
+      ),
+    );
   }
 
 }
