@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:linli/pages/tourist/tourist_home_page.dart';
@@ -45,6 +48,10 @@ class _HomeState extends State<Home> {
       home = TouristHomePage();
     } else {
       home = _loading();
+    }
+
+    if (!Platform.isIOS && !Platform.isAndroid) {
+      home = TouristHomePage();
     }
 
     return home;
