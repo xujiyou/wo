@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:linli/util/shared_preferences_util.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -10,6 +12,10 @@ enum UserLoginState { WAIT, LOGIN, HOME }
 class GlobalModel extends Model {
   UserLoginState _userLoginState = UserLoginState.WAIT;
 
+  GlobalModel() {
+    judgeLogin();
+  }
+
   UserLoginState get userLoginState => _userLoginState;
 
   void judgeLogin() {
@@ -21,7 +27,7 @@ class GlobalModel extends Model {
       } else {
         _userLoginState = UserLoginState.HOME;
       }
-      //notifyListeners();
+      notifyListeners();
     });
   }
 }

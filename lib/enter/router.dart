@@ -8,11 +8,10 @@ import 'package:scoped_model/scoped_model.dart';
 
 class Router {
 
-  static Widget home = ScopedModel<GlobalModel>(
+  static final Widget home = ScopedModel<GlobalModel>(
     model: GlobalModel(),
     child: ScopedModelDescendant<GlobalModel>(
         builder: (buildContext, child, globalModel) {
-          globalModel.judgeLogin();
           return Home();
         }
     ),
