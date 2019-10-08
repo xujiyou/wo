@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:linli/pages/user_home_page.dart';
+import 'package:linli/enter/router.dart';
+import 'package:linli/enter/theme.dart';
 
 class App extends StatefulWidget {
   @override
@@ -14,11 +15,8 @@ class _AppState extends State<App> {
 
     return MaterialApp(
       title: "邻里",
-     // theme: model.option.theme.data, //定义主题
-     // onGenerateRoute: Application.router.generator, //定义路由
-      routes: {
-        "/": (buildContext) => UserHomePage()
-      },
+      theme: LinliTheme.lightLinliTheme.data,
+      routes: Router.routes,
       localizationsDelegates: [ //本地化支持
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
