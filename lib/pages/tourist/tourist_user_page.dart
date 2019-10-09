@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/widgets/user_widget.dart';
 
 class TouristUserPage extends StatefulWidget {
   @override
@@ -6,58 +7,41 @@ class TouristUserPage extends StatefulWidget {
 }
 
 class _TouristUserPageState extends State<TouristUserPage> {
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
         backgroundColor: theme.backgroundColor,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text("登录后查看邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                ),
+        body: ListView(
+          padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
+          children: <Widget>[
+            SizedBox(height: 60.0,),
+            Container(
+              padding: EdgeInsets.only(top: 6.0, bottom: 12.0),
+              margin: EdgeInsets.symmetric(horizontal: 16.0),
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: theme.dividerColor, width: 0.4))
               ),
-              SizedBox(
-                height: 16.0,
+              child: Row(
+                children: <Widget>[
+                  Text("邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
+                  Expanded(child: Container(),),
+                  CircleAvatar(
+                    radius: 20.0,
+                    backgroundColor: theme.primaryColor,
+                    child: FlutterLogo(),
+                  )
+                ],
               ),
-              Container(
-                child: RaisedButton(
-                  onPressed: () {},
-                  color: theme.cardColor,
-                  shape: StadiumBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-                    child: Text("立即登录", style: TextStyle(color: theme.primaryColor, fontWeight: FontWeight.bold)),
-                  ),
-                ),
-              ),
-              Container(
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
+            ),
+            SizedBox(height: 20.0),
+            UserWidget(),
+            UserWidget(),
+            UserWidget(),
+          ],
+        ),
     );
   }
 }
