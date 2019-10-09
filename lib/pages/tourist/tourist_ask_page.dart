@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:linli/widgets/album_widget.dart';
+import 'package:linli/widgets/ask_widget.dart';
+import 'package:linli/widgets/clock_widget.dart';
+import 'package:linli/widgets/notice_widget.dart';
 
 class TouristAskPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _TouristAskPageState();
-
 }
 
 class _TouristAskPageState extends State<TouristAskPage> {
@@ -13,51 +16,70 @@ class _TouristAskPageState extends State<TouristAskPage> {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
-        backgroundColor: theme.backgroundColor,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      backgroundColor: theme.backgroundColor,
+      body: Stack(
+        alignment: Alignment.bottomRight,
+        children: <Widget>[
+          ListView(
+            padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
             children: <Widget>[
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text("登录后查看邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                ),
-              ),
-              SizedBox(height: 16.0,),
+              SizedBox(height: 60.0,),
               Container(
-                child: RaisedButton(
-                  onPressed: () {},
-                  color: theme.cardColor,
-                  shape: StadiumBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-                    child: Text("立即登录", style: TextStyle(color: theme.primaryColor, fontWeight: FontWeight.bold)),
-                  ),
-                ),
-              ),
-              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
                 child: Row(
                   children: <Widget>[
-                    Expanded(
-                      child: Container(
-
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-
-                      ),
-                    ),
+                    Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
+                    Expanded(child: Container(),),
+                    CircleAvatar(
+                      radius: 20.0,
+                      backgroundColor: theme.primaryColor,
+                      child: FlutterLogo(),
+                    )
                   ],
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+                height: 42.0,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: theme.cardColor,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Icon(Icons.search),
+                    ),
+                    Text("搜索公告、动态、相册、博客")
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.0),
+              AskWidget(),
+              ClockWidget(),
+              AlbumWidget(),
+              NoticeWidget(),
+              AskWidget(),
+              ClockWidget(),
+              AlbumWidget(),
+              NoticeWidget()
             ],
           ),
-        )
+
+          Positioned(
+            bottom: kToolbarHeight + 12,
+            child: RaisedButton(
+              onPressed: () {},
+              shape: CircleBorder(),
+              color: theme.primaryColor,
+              padding: EdgeInsets.all(12.0),
+              child: Icon(Icons.add, color: Colors.white,),
+            ),
+          )
+        ],
+      ),
     );
   }
 

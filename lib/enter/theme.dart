@@ -20,12 +20,12 @@ class LinliTheme {
         primaryColorBrightness: Brightness.light,
         primaryColor: Color(0xFF202d40),
         indicatorColor: Colors.white,
-        disabledColor: Color(0xFF38D3CD).withOpacity(0.4), // 取
+        disabledColor: Color(0xFF38D3CD).withOpacity(0.4),
         dividerColor: Color(0xFF999999), // 分割线的颜色
         hintColor: Colors.black45,
         scaffoldBackgroundColor: Color(0xFFF5F5F5),
         backgroundColor: Color(0xFFF5F5F5),
-        accentColor: Color(0xFF38D3CD));
+        accentColor: Color(0xFF29E1A7));
   }
 
   static ThemeData _buildDarkTheme() {

@@ -24,8 +24,8 @@ class _TouristHomePageState extends State<TouristHomePage> {
             controller: swiperController,
             autoStart: false,
             children: [
-              TouristIndexPage(),
-              TouristServicePage(),
+//              TouristIndexPage(),
+//              TouristServicePage(),
               TouristAskPage(),
               TouristUserPage(),
               TouristZonePage(),

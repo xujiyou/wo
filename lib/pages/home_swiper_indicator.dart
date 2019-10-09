@@ -6,10 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //底部导航栏
 class HomeSwiperIndicator extends SwiperIndicator {
   HomeSwiperIndicator(this.swiperController);
+
   final SwiperController swiperController;
+
   List<BarItem> barItemList = [
-    BarItem("首页", FontAwesomeIcons.home),
-    BarItem("服务", FontAwesomeIcons.servicestack),
+//    BarItem("首页", FontAwesomeIcons.home),
+//    BarItem("服务", FontAwesomeIcons.servicestack),
     BarItem("动态", FontAwesomeIcons.heartbeat),
     BarItem("邻居", FontAwesomeIcons.doorOpen),
     BarItem("我的", FontAwesomeIcons.solidUser),
@@ -22,24 +24,8 @@ class HomeSwiperIndicator extends SwiperIndicator {
     return Container(
       height: kToolbarHeight,
       decoration: BoxDecoration(
-        color: theme.cardColor,
-        boxShadow: <BoxShadow>[
-          new BoxShadow(
-              color: const Color(0x0e000000),
-              offset: new Offset(0.0, 1.0),
-              blurRadius: 1.0,
-              spreadRadius: 0.0),
-          new BoxShadow(
-              color: const Color(0x0c000000),
-              offset: new Offset(0.0, 1.0),
-              blurRadius: 1.0,
-              spreadRadius: -1.0),
-          new BoxShadow(
-              color: const Color(0x15000000),
-              offset: new Offset(0.0, 1.0),
-              blurRadius: 1.0,
-              spreadRadius: 0.0),
-        ]
+        color: theme.cardColor.withOpacity(0.9),
+//        border: Border(top: BorderSide(color: theme.backgroundColor, width: 0.4))
       ),
       child: Row(
         children: List.generate(itemCount, (_index) {
