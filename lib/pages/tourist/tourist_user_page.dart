@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/widgets/user_group_widget.dart';
 import 'package:linli/widgets/user_widget.dart';
 
 class TouristUserPage extends StatefulWidget {
@@ -28,18 +29,18 @@ class _TouristUserPageState extends State<TouristUserPage> {
                 children: <Widget>[
                   Text("邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
                   Expanded(child: Container(),),
-                  CircleAvatar(
-                    radius: 20.0,
-                    backgroundColor: theme.primaryColor,
-                    child: FlutterLogo(),
-                  )
+                  FlatButton(
+                    color: theme.primaryColor,
+                    onPressed: () {},
+                    child: Text("分组", style: TextStyle(color: Colors.white)),
+                  ),
                 ],
               ),
             ),
             SizedBox(height: 20.0),
             UserWidget(),
             UserWidget(),
-            UserWidget(),
+            UserWidget()
           ],
         ),
     );

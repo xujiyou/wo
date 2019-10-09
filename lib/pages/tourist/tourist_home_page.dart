@@ -28,7 +28,7 @@ class _TouristHomePageState extends State<TouristHomePage> {
 //              TouristServicePage(),
               TouristAskPage(),
               TouristUserPage(),
-              TouristZonePage(),
+              TouristServicePage(),
             ]
         )
     );

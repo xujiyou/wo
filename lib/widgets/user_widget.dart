@@ -18,11 +18,10 @@ class _UserWidgetState extends State<UserWidget> {
       child: FlipCardWidget(
         frontWidget: Container(
           margin: EdgeInsets.symmetric(horizontal: 16.0),
-          width: double.infinity,
           height: cardHeight,
           decoration: BoxDecoration(
-              color: theme.cardColor,
-              borderRadius: BorderRadius.all(Radius.circular(8.0))
+            color: theme.cardColor,
+            borderRadius: BorderRadius.all(Radius.circular(8.0))
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +37,8 @@ class _UserWidgetState extends State<UserWidget> {
                     color: theme.textTheme.body1.color,
                   ),
                   SizedBox(width: 12.0,),
-                  Text("首席设计（创始人）")
+                  Text("首席设计（创始人）"),
+                  Expanded(child: Container())
                 ],
               ),
               SizedBox(height: 24.0),
@@ -70,7 +70,6 @@ class _UserWidgetState extends State<UserWidget> {
         ),
         backWidget: Container(
             margin: EdgeInsets.symmetric(horizontal: 16.0),
-            width: double.infinity,
             height: cardHeight,
             decoration: BoxDecoration(
                 color: theme.primaryColor,

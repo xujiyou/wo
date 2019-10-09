@@ -37,7 +37,7 @@ class _AskWidgetState extends State<AskWidget> {
           SizedBox(height: 12.0),
           Container(
             child: Text(
-              "RPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP/2 设计，基于protobuf 3.x，基于Netty 4.x +。目前提供 C、Java 和 Go 语言版本",
+              "gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP/2 设计，基于protobuf 3.x，基于Netty 4.x +。目前提供 C、Java 和 Go 语言版本",
               textAlign: TextAlign.justify,
             ),
           ),

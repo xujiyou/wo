@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/pages/tourist/tourist_zone_page.dart';
 import 'package:linli/widgets/album_widget.dart';
 import 'package:linli/widgets/ask_widget.dart';
 import 'package:linli/widgets/clock_widget.dart';
@@ -30,10 +31,15 @@ class _TouristAskPageState extends State<TouristAskPage> {
                   children: <Widget>[
                     Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
                     Expanded(child: Container(),),
-                    CircleAvatar(
-                      radius: 20.0,
-                      backgroundColor: theme.primaryColor,
-                      child: FlutterLogo(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (c) => TouristZonePage()));
+                      },
+                      child: CircleAvatar(
+                        radius: 20.0,
+                        backgroundColor: theme.primaryColor,
+                        child: FlutterLogo(),
+                      ),
                     )
                   ],
                 ),

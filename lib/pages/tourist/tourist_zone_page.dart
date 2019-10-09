@@ -10,7 +10,7 @@ class  _TouristZonePageState extends State<TouristZonePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TouristZonePage"),
+        title: Text("我的主页"),
       ),
     );
   }
