@@ -14,7 +14,7 @@ class _NoticeWidgetState extends State<NoticeWidget> {
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(12.0),
       width: double.infinity,
       decoration: BoxDecoration(
           color: theme.cardColor,

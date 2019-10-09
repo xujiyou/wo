@@ -46,7 +46,7 @@ class _TouristAskPageState extends State<TouristAskPage> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-                height: 42.0,
+                height: 48.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: theme.cardColor,
@@ -55,7 +55,7 @@ class _TouristAskPageState extends State<TouristAskPage> {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: EdgeInsets.symmetric(horizontal: 12.0),
                       child: Icon(Icons.search),
                     ),
                     Text("搜索公告、动态、相册、博客")
