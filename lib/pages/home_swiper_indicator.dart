@@ -14,7 +14,7 @@ class HomeSwiperIndicator extends SwiperIndicator {
 //    BarItem("服务", FontAwesomeIcons.servicestack),
     BarItem("动态", FontAwesomeIcons.heartbeat),
     BarItem("邻居", FontAwesomeIcons.doorOpen),
-    BarItem("发现", FontAwesomeIcons.servicestack),
+    BarItem("我的", FontAwesomeIcons.solidUser),
   ];
 
   @override
