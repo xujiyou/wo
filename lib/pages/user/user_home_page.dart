@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:linli/scoped_model/global_model.dart';
+import 'package:linli/util/shared_preferences_util.dart';
 
 class UserHomePage extends StatefulWidget {
   @override
@@ -6,6 +8,15 @@ class UserHomePage extends StatefulWidget {
 }
 
 class _UserHomePageState extends State<UserHomePage> {
+
+  void logout() {
+    SharedPreferencesUtil.handleCache((prefs) {
+      prefs.setString("token", "");
+      prefs.setString("id", "");
+      globalModel.judgeLogin();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -14,7 +25,10 @@ class _UserHomePageState extends State<UserHomePage> {
         title: Text("邻里"),
       ),
       body: Center(
-        child: Text("邻里"),
+        child: FlatButton(
+          onPressed: () => logout(),
+          child: Text("注销"),
+        ),
       ),
     );
   }

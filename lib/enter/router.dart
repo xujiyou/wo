@@ -9,7 +9,7 @@ import 'package:scoped_model/scoped_model.dart';
 class Router {
 
   static final Widget home = ScopedModel<GlobalModel>(
-    model: GlobalModel(),
+    model: globalModel,
     child: ScopedModelDescendant<GlobalModel>(
         builder: (buildContext, child, globalModel) {
           return Home();

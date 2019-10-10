@@ -9,6 +9,8 @@ import 'package:scoped_model/scoped_model.dart';
 /// HOME：用户完成了登录，进入首页
 enum UserLoginState { WAIT, LOGIN, HOME }
 
+GlobalModel globalModel = GlobalModel();
+
 class GlobalModel extends Model {
   UserLoginState _userLoginState = UserLoginState.WAIT;
 
@@ -27,6 +29,7 @@ class GlobalModel extends Model {
       } else {
         _userLoginState = UserLoginState.HOME;
       }
+      log("_userLoginState: " + _userLoginState.toString());
       notifyListeners();
     });
   }
