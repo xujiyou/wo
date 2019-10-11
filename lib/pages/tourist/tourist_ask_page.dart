@@ -11,7 +11,7 @@ class TouristAskPage extends StatefulWidget {
   State<StatefulWidget> createState() => _TouristAskPageState();
 }
 
-class _TouristAskPageState extends State<TouristAskPage>  with AutomaticKeepAliveClientMixin<TouristAskPage> {
+class _TouristAskPageState extends State<TouristAskPage> with AutomaticKeepAliveClientMixin<TouristAskPage> {
 
   @override
   Widget build(BuildContext context) {
