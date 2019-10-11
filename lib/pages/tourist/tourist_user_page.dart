@@ -31,7 +31,7 @@ class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAli
                       expandedHeight: 118.0,
                       backgroundColor: theme.backgroundColor,
                       flexibleSpace: FlexibleSpaceBar(
-                        title: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,  fontFamily: "kaiti", color: theme.primaryColor)),
+                        title: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,  fontFamily: "kaiti", color: theme.primaryColor)),
                       )
                     )
                   ];

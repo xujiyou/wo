@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
-import 'package:linli/pages/tourist/tourist_zone_page.dart';
 import 'package:linli/plugins/custom_space_bar.dart';
 import 'package:linli/widgets/album_widget.dart';
 import 'package:linli/widgets/ask_widget.dart';

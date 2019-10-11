@@ -29,7 +29,7 @@ class _UserWidgetState extends State<UserWidget> {
               Row(
                 children: <Widget>[
                   SizedBox(width: 32.0,),
-                  Text("赵龙", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                  Text("邻里社区", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   SizedBox(width: 12.0,),
                   Container(
                     width: 0.4,
@@ -37,7 +37,7 @@ class _UserWidgetState extends State<UserWidget> {
                     color: theme.textTheme.body1.color,
                   ),
                   SizedBox(width: 12.0,),
-                  Text("首席设计（创始人）"),
+                  Text("发现你的邻居"),
                   Expanded(child: Container())
                 ],
               ),
@@ -49,15 +49,15 @@ class _UserWidgetState extends State<UserWidget> {
                     child: Container()
                   ),
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Container(
                        child: Column(
                          crossAxisAlignment: CrossAxisAlignment.start,
                          children: <Widget>[
-                           Text("精铸装饰设计有限责任公司", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                           Text("成都维度视野科技有限公司", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                            SizedBox(height: 8.0),
                            Text("联系方式：1101101110", style: TextStyle()),
-                           Text("微信：x110110110", style: TextStyle()),
+                           Text("邮箱：x110110110", style: TextStyle()),
                            Text("地址：金融城", style: TextStyle()),
                          ],
                        ),
