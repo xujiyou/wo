@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:linli/widget_plugins/flip_card_widget.dart';
+import 'package:linli/plugins/flip_card_widget.dart';
 
 class UserWidget extends StatefulWidget {
   @override
