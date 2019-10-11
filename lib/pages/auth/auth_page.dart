@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -19,12 +20,27 @@ class _AuthPageState extends State<AuthPage> {
   FocusNode passFocusNode = FocusNode();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passController = TextEditingController();
-  bool showPass = false; //是否显示密码
+  Timer timer;
+  int seconds = 60;
 
   @override
   void initState() {
     super.initState();
     findPhoneFromCache();
+  }
+
+  void validatePhone() async {
+    seconds--;
+    setState(() {});
+    timer = Timer.periodic(Duration(seconds: 1), (time) {
+      if (seconds == 0) {
+        timer.cancel();
+        seconds = 60;
+      } else {
+        seconds--;
+      }
+      setState(() {});
+    });
   }
 
   void findPhoneFromCache() {
@@ -48,8 +64,7 @@ class _AuthPageState extends State<AuthPage> {
 //    log("登录结果：" + map.toString());
     String id = "123456", token = "123456";
     if (id != "" && token != "") {
-      await saveTokenToCache(
-          id, phoneController.text, token, passController.text);
+      await saveTokenToCache(id, phoneController.text, token, passController.text);
       loginSuccess();
     } else {
       String errMsg = "errmsg";
@@ -86,7 +101,6 @@ class _AuthPageState extends State<AuthPage> {
               style: TextStyle(color: Theme.of(context).accentColor)),
           onPressed: () {
             Navigator.of(context).pop();
-            showPass = true;
             setState(() {});
           });
     }
@@ -123,8 +137,7 @@ class _AuthPageState extends State<AuthPage> {
     Widget phoneWidget = Container(
       margin: EdgeInsets.only(left: 32.0, right: 32.0),
       decoration: BoxDecoration(
-          border:
-              Border(bottom: BorderSide(width: 0.5, color: Colors.white70))),
+          border: Border(bottom: BorderSide(width: 1.0, color: Colors.white70))),
       child: TextField(
         onSubmitted: (text) {
           if (text.isNotEmpty) {
@@ -158,57 +171,50 @@ class _AuthPageState extends State<AuthPage> {
     Widget passWidget = Container(
       margin: EdgeInsets.only(left: 32.0, right: 32.0),
       decoration: BoxDecoration(
-          border:
-              Border(bottom: BorderSide(width: 0.5, color: Colors.white70))),
-      child: TextField(
-        onSubmitted: (text) {
-          if (text.isNotEmpty) submit();
-        },
-        onChanged: (text) => setState(() {}),
-        focusNode: passFocusNode,
-        controller: passController,
-        cursorColor: primaryColor,
-        keyboardType: TextInputType.text,
-        obscureText: !showPass,
-        style: TextStyle(color: Colors.white, letterSpacing: 1.0),
-        decoration: InputDecoration(
-          suffixIcon: GestureDetector(
-            onTap: () => setState(() => showPass = !showPass),
-            child: Icon(
-                showPass == false
-                    ? FontAwesomeIcons.eyeSlash
-                    : FontAwesomeIcons.eye,
-                size: 16.0,
-                color: Colors.white70),
+          border: Border(bottom: BorderSide(width: 1.0, color: Colors.white70))),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: TextField(
+              onSubmitted: (text) {
+                if (text.isNotEmpty) submit();
+              },
+              onChanged: (text) => setState(() {}),
+              focusNode: passFocusNode,
+              controller: passController,
+              cursorColor: primaryColor,
+              keyboardType: TextInputType.text,
+              style: TextStyle(color: Colors.white, letterSpacing: 1.0),
+              decoration: InputDecoration(
+                icon: Icon(Icons.email, color: Colors.white,),
+                border: InputBorder.none,
+                hintText: "4位短信验证码",
+                hintStyle: TextStyle(color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
+                contentPadding:
+                    EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
+              ),
+            ),
           ),
-          icon: Icon(
-            Icons.lock_outline,
-            color: Colors.white,
-          ),
-          border: InputBorder.none,
-          hintText: "密码",
-          hintStyle: TextStyle(
-              color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
-          contentPadding:
-              EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
-        ),
+          FlatButton(
+              padding: EdgeInsets.zero,
+              color: phoneController.text.isEmpty ? theme.dividerColor : seconds == 60 ? primaryColor : theme.dividerColor,
+              onPressed: () {
+                if (seconds == 60 && phoneController.text.isNotEmpty) {
+                  validatePhone();
+                }
+              },
+              child: Text(
+                  seconds == 60 ? "发送验证码" : "$seconds 秒后重发",
+                  style: TextStyle(color: Colors.white, fontSize: 12.0))
+          )
+        ],
       ),
-    );
-
-    //忘记密码按钮
-    Widget forgetPassWidget = Container(
-      margin: EdgeInsets.only(left: 28.0, right: 28.0, top: 4.0, bottom: 8.0),
-      child: FlatButton(
-          onPressed: () {},
-          child: Text("忘记密码",
-              style: TextStyle(
-                  color: Colors.white, fontSize: 12.0, fontFamily: "kaiti"))),
     );
 
     //登录按钮
     Widget loginWidget = Container(
       width: double.infinity,
-      margin: EdgeInsets.only(left: 80.0, right: 80.0),
+      margin: EdgeInsets.only(left: 80.0, right: 80.0, top: 32.0),
       height: 42.0,
       child: FlatButton(
         shape: StadiumBorder(),
@@ -245,21 +251,29 @@ class _AuthPageState extends State<AuthPage> {
           height: height,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: ExactAssetImage("asset/images/blue.jpeg"),
+                image: ExactAssetImage("asset/images/well.jpg"),
                 fit: BoxFit.cover),
           ),
           child: Container(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.46),
             child: Column(
               children: <Widget>[
                 titleWidget,
                 phoneWidget,
                 passWidget,
-                forgetPassWidget,
                 loginWidget,
                 registerWidget,
                 Row(
                   children: <Widget>[
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.vpn_key, color: Colors.white, size: 28.0,),
+                          SizedBox(height: 6.0,),
+                          Text("获取邀请码", style: TextStyle(color: Colors.white, fontFamily: "kaiti"))
+                        ],
+                      ),
+                    ),
                     Expanded(
                       child: Column(
                         children: <Widget>[
@@ -269,15 +283,6 @@ class _AuthPageState extends State<AuthPage> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(Icons.email, color: Colors.white, size: 28.0,),
-                          SizedBox(height: 6.0,),
-                          Text("短信验证码登录", style: TextStyle(color: Colors.white, fontFamily: "kaiti"))
-                        ],
-                      ),
-                    )
                   ],
                 )
               ],

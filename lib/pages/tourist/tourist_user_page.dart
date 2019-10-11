@@ -27,7 +27,7 @@ class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAli
                       pinned: true,
                       floating: true,
                       snap: true,
-                      expandedHeight: 118.0,
+                      expandedHeight: 100.0,
                       backgroundColor: theme.backgroundColor,
                       flexibleSpace: FlexibleSpaceBar(
                         title: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,  fontFamily: "kaiti", color: theme.primaryColor)),
@@ -38,7 +38,7 @@ class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAli
                 body: ListView(
                   padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
                   children: <Widget>[
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 8.0),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linli/pages/common/about_page.dart';
 import 'package:linli/pages/common/feedback_page.dart';
+import 'package:linli/pages/user/invite_user_page.dart';
+import 'package:linli/pages/user/my_detail_info_page.dart';
+import 'package:linli/pages/user/setting_page.dart';
 
 class UserZonePage extends StatefulWidget {
   @override
@@ -23,7 +26,7 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
 
             GestureDetector(
               onTap: () {
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => MyDetailInfoPage()));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -38,15 +41,15 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
                     CircleAvatar(
                       radius: 36.0,
                       backgroundColor: theme.primaryColor,
-                      child: Icon(Icons.person_outline, color: Colors.white, size: 32.0,),
+                      child: FlutterLogo(),
                     ),
                     SizedBox(width: 12.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("请登录", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, fontFamily: "kaiti")),
+                        Text("张三", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, fontFamily: "kaiti")),
                         SizedBox(height: 4.0),
-                        Text("通过邻居邀请加入")
+                        Text("就想用一句话来描述自己", style: TextStyle(fontSize: 12.0),)
                       ],
                     )
                   ],
@@ -56,7 +59,7 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
 
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (c) => AboutPage()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => InviteUserPage()));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -131,7 +134,7 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
 
             GestureDetector(
               onTap: () {
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => SettingPage()));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),

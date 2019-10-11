@@ -32,7 +32,7 @@ class _TouristAskPageState extends State<TouristAskPage> with AutomaticKeepAlive
                     pinned: true,
                     floating: true,
                     snap: true,
-                    expandedHeight: 180.0,
+                    expandedHeight: 160.0,
                     backgroundColor: theme.backgroundColor,
                     flexibleSpace: CustomSpaceBar(
                       title: Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0, fontFamily: "kaiti", color: theme.primaryColor),),
