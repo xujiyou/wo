@@ -7,7 +7,7 @@ import 'package:linli/scoped_model/global_model.dart';
 import 'package:linli/util/shared_preferences_util.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-enum AuthErrType{NET_ERR, TEXT_ERR}
+enum AuthErrType { NET_ERR, TEXT_ERR }
 
 class AuthPage extends StatefulWidget {
   @override
@@ -48,7 +48,8 @@ class _AuthPageState extends State<AuthPage> {
 //    log("登录结果：" + map.toString());
     String id = "123456", token = "123456";
     if (id != "" && token != "") {
-      await saveTokenToCache(id, phoneController.text, token, passController.text);
+      await saveTokenToCache(
+          id, phoneController.text, token, passController.text);
       loginSuccess();
     } else {
       String errMsg = "errmsg";
@@ -61,7 +62,8 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   /// 缓存用户 id 和 token
-  Future saveTokenToCache(String userId, String phone, String token, String password) async {
+  Future saveTokenToCache(
+      String userId, String phone, String token, String password) async {
     await SharedPreferencesUtil.handleCache((prefs) {
       prefs.setString("phone", phone);
       prefs.setString("id", userId);
@@ -75,25 +77,24 @@ class _AuthPageState extends State<AuthPage> {
     Widget button;
     if (authErr == AuthErrType.NET_ERR) {
       button = FlatButton(
-          child: Text('OK', style: TextStyle(color: Theme.of(context).accentColor)),
-          onPressed: () => Navigator.of(context).pop()
-      );
+          child: Text('OK',
+              style: TextStyle(color: Theme.of(context).accentColor)),
+          onPressed: () => Navigator.of(context).pop());
     } else {
       button = FlatButton(
-          child: Text('检查', style: TextStyle(color: Theme.of(context).accentColor)),
+          child: Text('检查',
+              style: TextStyle(color: Theme.of(context).accentColor)),
           onPressed: () {
             Navigator.of(context).pop();
             showPass = true;
             setState(() {});
-          }
-      );
+          });
     }
 
     return showDialog<Null>(
       context: context,
       barrierDismissible: false, // 用户必须点击按钮
       builder: (BuildContext context) {
-
         return AlertDialog(
           title: Text(title),
           content: Text(desc),
@@ -111,17 +112,19 @@ class _AuthPageState extends State<AuthPage> {
     Color disableColor = Color(0xFF999999);
 
     //顶部logo
-    Widget titleWidget =  Container(
+    Widget titleWidget = Container(
       margin: EdgeInsets.only(top: height * 0.1, bottom: height * 0.04),
-      child: Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 38.0, fontFamily: "kaiti")),
+      child: Text("邻里社区",
+          style: TextStyle(
+              color: Colors.white, fontSize: 38.0, fontFamily: "kaiti")),
     );
 
     //手机号输入组件
     Widget phoneWidget = Container(
       margin: EdgeInsets.only(left: 32.0, right: 32.0),
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 0.5, color: Colors.white70))
-      ),
+          border:
+              Border(bottom: BorderSide(width: 0.5, color: Colors.white70))),
       child: TextField(
         onSubmitted: (text) {
           if (text.isNotEmpty) {
@@ -137,21 +140,26 @@ class _AuthPageState extends State<AuthPage> {
         style: TextStyle(color: Colors.white, letterSpacing: 1.0),
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          icon: Icon(Icons.person_outline, color: Colors.white,),
+          icon: Icon(
+            Icons.person_outline,
+            color: Colors.white,
+          ),
           border: InputBorder.none,
           hintText: "手机号",
-          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
-          contentPadding: EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
+          hintStyle: TextStyle(
+              color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
+          contentPadding:
+              EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
         ),
       ),
     );
 
     //密码输入组件
-    Widget passWidget =  Container(
+    Widget passWidget = Container(
       margin: EdgeInsets.only(left: 32.0, right: 32.0),
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 0.5, color: Colors.white70))
-      ),
+          border:
+              Border(bottom: BorderSide(width: 0.5, color: Colors.white70))),
       child: TextField(
         onSubmitted: (text) {
           if (text.isNotEmpty) submit();
@@ -164,19 +172,25 @@ class _AuthPageState extends State<AuthPage> {
         obscureText: !showPass,
         style: TextStyle(color: Colors.white, letterSpacing: 1.0),
         decoration: InputDecoration(
-          suffixIcon:  GestureDetector(
+          suffixIcon: GestureDetector(
             onTap: () => setState(() => showPass = !showPass),
             child: Icon(
-                showPass == false ? FontAwesomeIcons.eyeSlash : FontAwesomeIcons.eye,
+                showPass == false
+                    ? FontAwesomeIcons.eyeSlash
+                    : FontAwesomeIcons.eye,
                 size: 16.0,
-                color: Colors.white70
-            ),
+                color: Colors.white70),
           ),
-          icon: Icon(Icons.lock_outline, color: Colors.white,),
+          icon: Icon(
+            Icons.lock_outline,
+            color: Colors.white,
+          ),
           border: InputBorder.none,
           hintText: "密码",
-          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
-          contentPadding: EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
+          hintStyle: TextStyle(
+              color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
+          contentPadding:
+              EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
         ),
       ),
     );
@@ -186,57 +200,99 @@ class _AuthPageState extends State<AuthPage> {
       margin: EdgeInsets.only(left: 28.0, right: 28.0, top: 4.0, bottom: 8.0),
       child: FlatButton(
           onPressed: () {},
-          child: Text("忘记密码", style: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: "kaiti"))
-      ),
+          child: Text("忘记密码",
+              style: TextStyle(
+                  color: Colors.white, fontSize: 12.0, fontFamily: "kaiti"))),
     );
 
     //登录按钮
     Widget loginWidget = Container(
       width: double.infinity,
       margin: EdgeInsets.only(left: 80.0, right: 80.0),
-      height: 46.0,
+      height: 42.0,
       child: FlatButton(
         shape: StadiumBorder(),
         color: primaryColor.withOpacity(0.9),
         disabledColor: disableColor.withOpacity(0.7),
-        onPressed:() => submit(),
-        child: Text("登录", style: TextStyle(color: Colors.white, fontSize: 18.0, fontFamily: "kaiti"),),
+        onPressed: () => submit(),
+        child: Text(
+          "登录",
+          style: TextStyle(
+              color: Colors.white, fontSize: 18.0, fontFamily: "kaiti"),
+        ),
+      ),
+    );
+
+    //注册按钮
+    Widget registerWidget = Container(
+      width: double.infinity,
+      margin: EdgeInsets.only(left: 80.0, right: 80.0, top: 10.0, bottom: 50.0),
+      height: 42.0,
+      child: FlatButton(
+        shape: StadiumBorder(),
+        color: theme.primaryColor,
+        onPressed: () => submit(),
+        child: Text(
+          "通过邀请码加入",
+          style: TextStyle(color: Colors.white, fontSize: 16.0, fontFamily: "kaiti"),
+        ),
       ),
     );
 
     Widget scaffold = Scaffold(
         body: SingleChildScrollView(
-          child: Container(
-              height: height,
-              decoration: BoxDecoration( //背景
-                image: DecorationImage(image: ExactAssetImage("asset/images/blue.jpeg"), fit: BoxFit.cover),
-              ),
-              child: Container(
-                color: theme.primaryColor.withOpacity(0.5),
-                child: Column(
-                  children: <Widget>[
-                    titleWidget,
-                    phoneWidget,
-                    passWidget,
-                    forgetPassWidget,
-                    loginWidget
-                  ],
-                ),
-              )
+      child: Container(
+          height: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: ExactAssetImage("asset/images/blue.jpeg"),
+                fit: BoxFit.cover),
           ),
-        )
-    );
+          child: Container(
+            color: Colors.black.withOpacity(0.3),
+            child: Column(
+              children: <Widget>[
+                titleWidget,
+                phoneWidget,
+                passWidget,
+                forgetPassWidget,
+                loginWidget,
+                registerWidget,
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Icon(FontAwesomeIcons.weixin, color: Colors.white, size: 28.0,),
+                          SizedBox(height: 6.0,),
+                          Text("微信登录", style: TextStyle(color: Colors.white, fontFamily: "kaiti"))
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.email, color: Colors.white, size: 28.0,),
+                          SizedBox(height: 6.0,),
+                          Text("短信验证码登录", style: TextStyle(color: Colors.white, fontFamily: "kaiti"))
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )),
+    ));
 
     return GestureDetector(
-        onTap: () { //点击页面任意一个地方，取消对文本框的聚焦
+        onTap: () {
+          //点击页面任意一个地方，取消对文本框的聚焦
           phoneFocusNode.unfocus();
           passFocusNode.unfocus();
         },
         child: MaterialApp(
             theme: theme.copyWith(primaryColorBrightness: Brightness.light),
-            home: scaffold
-        )
-    );
+            home: scaffold));
   }
-
 }
