@@ -113,7 +113,7 @@ class _AuthPageState extends State<AuthPage> {
     //顶部logo
     Widget titleWidget =  Container(
       margin: EdgeInsets.only(top: height * 0.1, bottom: height * 0.04),
-      child: Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 38.0)),
+      child: Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 38.0, fontFamily: "kaiti")),
     );
 
     //手机号输入组件
@@ -140,7 +140,7 @@ class _AuthPageState extends State<AuthPage> {
           icon: Icon(Icons.person_outline, color: Colors.white,),
           border: InputBorder.none,
           hintText: "手机号",
-          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0),
+          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
           contentPadding: EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
         ),
       ),
@@ -175,7 +175,7 @@ class _AuthPageState extends State<AuthPage> {
           icon: Icon(Icons.lock_outline, color: Colors.white,),
           border: InputBorder.none,
           hintText: "密码",
-          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0),
+          hintStyle: TextStyle(color: Colors.white, fontSize: 14.0, fontFamily: "kaiti"),
           contentPadding: EdgeInsets.only(top: 30.0, right: 30.0, bottom: 30.0, left: 5.0),
         ),
       ),

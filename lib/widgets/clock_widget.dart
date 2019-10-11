@@ -52,7 +52,7 @@ class _ClockWidgetState extends State<ClockWidget> {
                 textAlign: TextAlign.justify,
                 text: TextSpan(
                   text: "签到：又是充满鸡血的一天   ",
-                  style: TextStyle(color: theme.textTheme.body1.color, fontFamily: "kaiti"),
+                  style: TextStyle(color: theme.textTheme.body1.color),
                   children: [
                     WidgetSpan(
                       child: Icon(Icons.location_on, color: theme.accentColor, size: 18.0,)

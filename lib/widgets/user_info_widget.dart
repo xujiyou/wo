@@ -29,9 +29,9 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("张三", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0)),
+              Text("张三", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0, fontFamily: "kaiti")),
               SizedBox(height: 2.0),
-              Text("一句话不足以介绍自己")
+              Text("一句话不足以介绍自己", style: TextStyle(fontSize: 12.0),)
             ],
           )
         ],

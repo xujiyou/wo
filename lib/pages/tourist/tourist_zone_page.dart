@@ -36,7 +36,7 @@ class  _TouristZonePageState extends State<TouristZonePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("请登录", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
+                    Text("请登录", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, fontFamily: "kaiti")),
                     SizedBox(height: 4.0),
                     Text("通过邻居邀请加入")
                   ],

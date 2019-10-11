@@ -26,7 +26,7 @@ class _TouristUserPageState extends State<TouristUserPage> {
                   padding: EdgeInsets.only(top: 6.0, bottom: 12.0),
                   margin: EdgeInsets.symmetric(horizontal: 16.0),
                   alignment: Alignment.center,
-                  child: Text("邻里社区 · 邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
+                  child: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,  fontFamily: "kaiti"),),
                 ),
                 SizedBox(height: 20.0),
                 Row(

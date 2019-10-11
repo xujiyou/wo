@@ -30,7 +30,7 @@ class _TouristAskPageState extends State<TouristAskPage> {
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
                 child: Row(
                   children: <Widget>[
-                    Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
+                    Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0, fontFamily: "kaiti"),),
                     Expanded(child: Container(),),
                     GestureDetector(
                       onTap: () {

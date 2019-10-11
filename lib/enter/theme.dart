@@ -16,7 +16,6 @@ class LinliTheme {
   static ThemeData _buildLightTheme() {
     final ThemeData base = ThemeData(
       brightness: Brightness.light,
-      fontFamily: "kaiti"
     );
     return base.copyWith(
         brightness: Brightness.light,
