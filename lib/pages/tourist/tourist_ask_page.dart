@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/pages/auth/auth_page.dart';
 import 'package:linli/pages/tourist/tourist_zone_page.dart';
 import 'package:linli/widgets/album_widget.dart';
 import 'package:linli/widgets/ask_widget.dart';
@@ -33,33 +34,38 @@ class _TouristAskPageState extends State<TouristAskPage> {
                     Expanded(child: Container(),),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (c) => TouristZonePage()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (c) => AuthPage()));
                       },
                       child: CircleAvatar(
                         radius: 20.0,
                         backgroundColor: theme.primaryColor,
-                        child: FlutterLogo(),
+                        child: Icon(Icons.person_outline, color: Colors.white,),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-                height: 48.0,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: theme.cardColor,
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 12.0),
-                      child: Icon(Icons.search),
-                    ),
-                    Text("搜索公告、动态、相册、博客")
-                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (c) => AuthPage()));
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+                  height: 48.0,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: theme.cardColor,
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Icon(Icons.search),
+                      ),
+                      Text("搜索邻居、小区、拼车、招聘、寻租...")
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 20.0),
@@ -77,7 +83,9 @@ class _TouristAskPageState extends State<TouristAskPage> {
           Positioned(
             bottom: kToolbarHeight + 12,
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => AuthPage()));
+              },
               shape: CircleBorder(),
               color: theme.primaryColor,
               padding: EdgeInsets.all(12.0),

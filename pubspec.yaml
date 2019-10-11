@@ -28,3 +28,8 @@ flutter:
   uses-material-design: true
   assets:
     - asset/images/blue.jpeg
+  fonts:
+    - family: kaiti
+      fonts:
+        # https://fonts.google.com/specimen/Noto+Sans+TC -->对应字体下载地址 这里可以不填 只是注释
+        - asset: asset/fonts/楷体GB2312.ttf

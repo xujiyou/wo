@@ -113,7 +113,7 @@ class _AuthPageState extends State<AuthPage> {
     //顶部logo
     Widget titleWidget =  Container(
       margin: EdgeInsets.only(top: height * 0.1, bottom: height * 0.04),
-      child: Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 38.0, fontWeight: FontWeight.bold)),
+      child: Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 38.0)),
     );
 
     //手机号输入组件
@@ -186,7 +186,7 @@ class _AuthPageState extends State<AuthPage> {
       margin: EdgeInsets.only(left: 28.0, right: 28.0, top: 4.0, bottom: 8.0),
       child: FlatButton(
           onPressed: () {},
-          child: Text("忘记密码", style: TextStyle(color: Colors.white, fontSize: 12.0))
+          child: Text("忘记密码", style: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: "kaiti"))
       ),
     );
 
@@ -194,13 +194,13 @@ class _AuthPageState extends State<AuthPage> {
     Widget loginWidget = Container(
       width: double.infinity,
       margin: EdgeInsets.only(left: 80.0, right: 80.0),
-      height: 42.0,
+      height: 46.0,
       child: FlatButton(
         shape: StadiumBorder(),
         color: primaryColor.withOpacity(0.9),
         disabledColor: disableColor.withOpacity(0.7),
-        onPressed: phoneController.text.isEmpty || passController.text.isEmpty ? null : () => submit(),
-        child: Text("登录", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.0),),
+        onPressed:() => submit(),
+        child: Text("登录", style: TextStyle(color: Colors.white, fontSize: 18.0, fontFamily: "kaiti"),),
       ),
     );
 

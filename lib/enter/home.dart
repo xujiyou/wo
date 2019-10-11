@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:linli/pages/tourist/tourist_home_page.dart';
-import 'package:linli/pages/user/user_home_page.dart';
+import 'package:linli/pages/tourist_home_page.dart';
+import 'package:linli/pages/user_home_page.dart';
 import 'package:linli/scoped_model/global_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 

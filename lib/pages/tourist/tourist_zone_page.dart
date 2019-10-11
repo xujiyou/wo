@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:linli/widgets/user_widget.dart';
 
 class TouristZonePage extends StatefulWidget {
   @override
@@ -31,15 +30,15 @@ class  _TouristZonePageState extends State<TouristZonePage> {
                 CircleAvatar(
                   radius: 36.0,
                   backgroundColor: theme.primaryColor,
-                  child: FlutterLogo(),
+                  child: Icon(Icons.person_outline, color: Colors.white, size: 32.0,),
                 ),
                 SizedBox(width: 12.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("赵子龙", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
+                    Text("请登录", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
                     SizedBox(height: 4.0),
-                    Text("精铸装饰创始人")
+                    Text("通过邻居邀请加入")
                   ],
                 )
               ],

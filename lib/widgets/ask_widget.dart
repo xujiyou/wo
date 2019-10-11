@@ -37,6 +37,13 @@ class _AskWidgetState extends State<AskWidget> {
                 SizedBox(width: 8.0),
                 Text("张三"),
                 Expanded(child: Container(),),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.location_on, size: 16.0, color: theme.dividerColor,),
+                    SizedBox(width: 2.0),
+                    Text("成都 · 国韵村", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),)
+                  ],
+                )
               ],
             ),
             SizedBox(height: 12.0),

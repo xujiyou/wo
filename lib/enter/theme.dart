@@ -14,7 +14,10 @@ class LinliTheme {
   static final LinliThemeData darkLinliTheme = LinliThemeData("Dark", _buildDarkTheme());
 
   static ThemeData _buildLightTheme() {
-    final ThemeData base = ThemeData.light();
+    final ThemeData base = ThemeData(
+      brightness: Brightness.light,
+      fontFamily: "kaiti"
+    );
     return base.copyWith(
         brightness: Brightness.light,
         primaryColorBrightness: Brightness.light,
@@ -26,6 +29,7 @@ class LinliTheme {
         scaffoldBackgroundColor: Color(0xFFF5F5F5),
         backgroundColor: Color(0xFFF5F5F5),
         accentColor: Color(0xFF29E1A7));
+
   }
 
   static ThemeData _buildDarkTheme() {

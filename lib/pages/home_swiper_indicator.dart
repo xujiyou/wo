@@ -1,6 +1,5 @@
 import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //底部导航栏
@@ -10,8 +9,6 @@ class HomeSwiperIndicator extends SwiperIndicator {
   final SwiperController swiperController;
 
   List<BarItem> barItemList = [
-//    BarItem("首页", FontAwesomeIcons.home),
-//    BarItem("服务", FontAwesomeIcons.servicestack),
     BarItem("动态", FontAwesomeIcons.heartbeat),
     BarItem("邻居", FontAwesomeIcons.doorOpen),
     BarItem("我的", FontAwesomeIcons.solidUser),
@@ -24,8 +21,7 @@ class HomeSwiperIndicator extends SwiperIndicator {
     return Container(
       height: kToolbarHeight,
       decoration: BoxDecoration(
-        color: theme.cardColor.withOpacity(0.9),
-//        border: Border(top: BorderSide(color: theme.backgroundColor, width: 0.4))
+        color: theme.cardColor.withOpacity(0),
       ),
       child: Row(
         children: List.generate(itemCount, (_index) {
@@ -33,14 +29,14 @@ class HomeSwiperIndicator extends SwiperIndicator {
           if (_index == index) barColor = theme.accentColor;
 
           return Expanded(
-            child: FlatButton(
-              onPressed: () {
-                SystemSound.play(SystemSoundType.click);
+            child: GestureDetector(
+              onTap: () {
                 swiperController.animateToPage(_index, duration: Duration(milliseconds: 300), curve: Curves.linear);
               },
-              padding: EdgeInsets.zero,
               child: Container(
                 height: kToolbarHeight,
+                width: double.infinity,
+                color: theme.cardColor.withOpacity(0.9),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
