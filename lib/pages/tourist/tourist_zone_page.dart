@@ -5,7 +5,7 @@ class TouristZonePage extends StatefulWidget {
   State<StatefulWidget> createState() => _TouristZonePageState();
 }
 
-class  _TouristZonePageState extends State<TouristZonePage> {
+class _TouristZonePageState extends State<TouristZonePage> with AutomaticKeepAliveClientMixin<TouristZonePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -106,5 +106,8 @@ class  _TouristZonePageState extends State<TouristZonePage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
 }

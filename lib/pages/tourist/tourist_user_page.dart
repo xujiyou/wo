@@ -7,7 +7,7 @@ class TouristUserPage extends StatefulWidget {
   State<StatefulWidget> createState() => _TouristUserPageState();
 }
 
-class _TouristUserPageState extends State<TouristUserPage> {
+class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAliveClientMixin<TouristUserPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -18,37 +18,49 @@ class _TouristUserPageState extends State<TouristUserPage> {
         body: Stack(
           alignment: Alignment.bottomRight,
           children: <Widget>[
-            ListView(
-              padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
-              children: <Widget>[
-                SizedBox(height: 60.0,),
-                Container(
-                  padding: EdgeInsets.only(top: 6.0, bottom: 12.0),
-                  margin: EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.center,
-                  child: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,  fontFamily: "kaiti"),),
-                ),
-                SizedBox(height: 20.0),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: NestedScrollView(
+                headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+                  return <Widget>[
+                    SliverAppBar(
+                      pinned: true,
+                      floating: true,
+                      snap: true,
+                      expandedHeight: 118.0,
+                      backgroundColor: theme.backgroundColor,
+                      flexibleSpace: FlexibleSpaceBar(
+                        title: Text("邻里社区·邻居", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,  fontFamily: "kaiti", color: theme.primaryColor)),
+                      )
+                    )
+                  ];
+                },
+                body: ListView(
+                  padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
                   children: <Widget>[
-                    Expanded(
-                      child: Column(
-
-                        children: <Widget>[
-                          UserInfoWidget(),
-                          UserInfoWidget(),
-                          UserInfoWidget(),
-                          UserInfoWidget(),
-                          UserInfoWidget(),
-                          UserInfoWidget()
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 64.0),
+                    SizedBox(height: 20.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              UserInfoWidget(),
+                              UserInfoWidget(),
+                              UserInfoWidget(),
+                              UserInfoWidget(),
+                              UserInfoWidget(),
+                              UserInfoWidget()
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 64.0),
+                      ],
+                    )
                   ],
-                )
-              ],
+                ),
+              )
             ),
             Positioned(
               top: 124.0,
@@ -78,4 +90,7 @@ class _TouristUserPageState extends State<TouristUserPage> {
         ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
