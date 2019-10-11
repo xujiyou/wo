@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class UserInfoWidget extends StatefulWidget {
+class TouristUserInfoWidget extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _UserInfoWidgetState();
+  State<StatefulWidget> createState() => _TouristUserInfoWidgetState();
 }
 
-class _UserInfoWidgetState extends State<UserInfoWidget> {
+class _TouristUserInfoWidgetState extends State<TouristUserInfoWidget> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);

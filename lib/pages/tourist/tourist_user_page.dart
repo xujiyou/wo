@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:linli/pages/auth/auth_page.dart';
-import 'package:linli/widgets/user_info_widget.dart';
+import 'package:linli/pages/tourist/widgets/tourist_user_info_widget.dart';
 
 class TouristUserPage extends StatefulWidget {
   @override
@@ -46,12 +45,12 @@ class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAli
                         Expanded(
                           child: Column(
                             children: <Widget>[
-                              UserInfoWidget(),
-                              UserInfoWidget(),
-                              UserInfoWidget(),
-                              UserInfoWidget(),
-                              UserInfoWidget(),
-                              UserInfoWidget()
+                              TouristUserInfoWidget(),
+                              TouristUserInfoWidget(),
+                              TouristUserInfoWidget(),
+                              TouristUserInfoWidget(),
+                              TouristUserInfoWidget(),
+                              TouristUserInfoWidget()
                             ],
                           ),
                         ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
 
-class ClockWidget extends StatefulWidget {
+class TouristAskWidget extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _ClockWidgetState();
+  State<StatefulWidget> createState() => _TouristAskWidgetState();
 }
 
-class _ClockWidgetState extends State<ClockWidget> {
+class _TouristAskWidgetState extends State<TouristAskWidget> {
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _ClockWidgetState extends State<ClockWidget> {
                   child: FlutterLogo(),
                 ),
                 SizedBox(width: 8.0),
-                Text("李四"),
+                Text("张三"),
                 Expanded(child: Container(),),
                 Row(
                   children: <Widget>[
@@ -48,27 +48,15 @@ class _ClockWidgetState extends State<ClockWidget> {
             ),
             SizedBox(height: 12.0),
             Container(
-              child: RichText(
+              child: Text(
+                "gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP/2 设计，基于protobuf 3.x，基于Netty 4.x +。目前提供 C、Java 和 Go 语言版本",
                 textAlign: TextAlign.justify,
-                text: TextSpan(
-                  text: "签到：又是充满鸡血的一天   ",
-                  style: TextStyle(color: theme.textTheme.body1.color),
-                  children: [
-                    WidgetSpan(
-                      child: Icon(Icons.location_on, color: theme.accentColor, size: 18.0,)
-                    ),
-                    TextSpan(
-                      text: "金融城",
-                      style: TextStyle(color: theme.accentColor),
-                    )
-                  ]
-                )
               ),
             ),
             SizedBox(height: 12.0),
             Row(
               children: <Widget>[
-                Text("4小时前", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
+                Text("3小时前", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
                 Expanded(child: Container(),),
                 Icon(Icons.more_horiz)
               ],

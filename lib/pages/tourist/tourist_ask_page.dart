@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
+import 'package:linli/pages/tourist/widgets/tourist_album_widget.dart';
+import 'package:linli/pages/tourist/widgets/tourist_ask_widget.dart';
+import 'package:linli/pages/tourist/widgets/tourist_clock_widget.dart';
+import 'package:linli/pages/tourist/widgets/tourist_notice_widget.dart';
 import 'package:linli/plugins/custom_space_bar.dart';
-import 'package:linli/widgets/album_widget.dart';
-import 'package:linli/widgets/ask_widget.dart';
-import 'package:linli/widgets/clock_widget.dart';
-import 'package:linli/widgets/notice_widget.dart';
 
 class TouristAskPage extends StatefulWidget {
   @override
@@ -80,14 +80,14 @@ class _TouristAskPageState extends State<TouristAskPage>  with AutomaticKeepAliv
                 padding: EdgeInsets.only(bottom: kToolbarHeight + 20.0),
                 children: <Widget>[
                   SizedBox(height: 20.0),
-                  AskWidget(),
-                  ClockWidget(),
-                  AlbumWidget(),
-                  NoticeWidget(),
-                  AskWidget(),
-                  ClockWidget(),
-                  AlbumWidget(),
-                  NoticeWidget()
+                  TouristAskWidget(),
+                  TouristClockWidget(),
+                  TouristAlbumWidget(),
+                  TouristNoticeWidget(),
+                  TouristAskWidget(),
+                  TouristClockWidget(),
+                  TouristAlbumWidget(),
+                  TouristNoticeWidget()
                 ],
               ),
             ),

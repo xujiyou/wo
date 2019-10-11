@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
 
-class NoticeWidget extends StatefulWidget {
-
+class TouristClockWidget extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _NoticeWidgetState();
-
+  State<StatefulWidget> createState() => _TouristClockWidgetState();
 }
 
-class _NoticeWidgetState extends State<NoticeWidget> {
+class _TouristClockWidgetState extends State<TouristClockWidget> {
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -36,7 +35,7 @@ class _NoticeWidgetState extends State<NoticeWidget> {
                   child: FlutterLogo(),
                 ),
                 SizedBox(width: 8.0),
-                Text("邻里社区"),
+                Text("李四"),
                 Expanded(child: Container(),),
                 Row(
                   children: <Widget>[
@@ -49,15 +48,27 @@ class _NoticeWidgetState extends State<NoticeWidget> {
             ),
             SizedBox(height: 12.0),
             Container(
-              child: Text(
-                "停电公告---东奥路区域停电检修：尊敬的客户，今07:30至20:00，您户所在的10KV东奥路区域停电检修工作，现因故将延迟大约至23:00恢复供电。由此带来的不便，深表歉意，敬请谅解。",
+              child: RichText(
                 textAlign: TextAlign.justify,
+                text: TextSpan(
+                  text: "签到：又是充满鸡血的一天   ",
+                  style: TextStyle(color: theme.textTheme.body1.color),
+                  children: [
+                    WidgetSpan(
+                      child: Icon(Icons.location_on, color: theme.accentColor, size: 18.0,)
+                    ),
+                    TextSpan(
+                      text: "金融城",
+                      style: TextStyle(color: theme.accentColor),
+                    )
+                  ]
+                )
               ),
             ),
             SizedBox(height: 12.0),
             Row(
               children: <Widget>[
-                Text("2019-10-10", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
+                Text("4小时前", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
                 Expanded(child: Container(),),
                 Icon(Icons.more_horiz)
               ],

@@ -2,8 +2,6 @@ import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
 import 'package:linli/pages/home_swiper_indicator.dart';
 import 'package:linli/pages/tourist/tourist_ask_page.dart';
-import 'package:linli/pages/tourist/tourist_index_page.dart';
-import 'package:linli/pages/tourist/tourist_service_page.dart';
 import 'package:linli/pages/tourist/tourist_user_page.dart';
 import 'package:linli/pages/tourist/tourist_zone_page.dart';
 
@@ -24,8 +22,6 @@ class _TouristHomePageState extends State<TouristHomePage> {
             controller: swiperController,
             autoStart: false,
             children: [
-//              TouristIndexPage(),
-//              TouristServicePage(),
               TouristAskPage(),
               TouristUserPage(),
               TouristZonePage(),

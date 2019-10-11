@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
 
-class AlbumWidget extends StatefulWidget {
+class TouristAlbumWidget extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _AlbumWidgetState();
+  State<StatefulWidget> createState() => _TouristAlbumWidgetState();
 }
 
-class _AlbumWidgetState extends State<AlbumWidget> {
+class _TouristAlbumWidgetState extends State<TouristAlbumWidget> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);

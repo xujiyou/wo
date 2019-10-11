@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:linli/pages/auth/auth_page.dart';
 
-class AskWidget extends StatefulWidget {
+class TouristNoticeWidget extends StatefulWidget {
+
   @override
-  State<StatefulWidget> createState() => _AskWidgetState();
+  State<StatefulWidget> createState() => _TouristNoticeWidgetState();
+
 }
 
-class _AskWidgetState extends State<AskWidget> {
-
+class _TouristNoticeWidgetState extends State<TouristNoticeWidget> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -35,7 +36,7 @@ class _AskWidgetState extends State<AskWidget> {
                   child: FlutterLogo(),
                 ),
                 SizedBox(width: 8.0),
-                Text("张三"),
+                Text("邻里社区"),
                 Expanded(child: Container(),),
                 Row(
                   children: <Widget>[
@@ -49,14 +50,14 @@ class _AskWidgetState extends State<AskWidget> {
             SizedBox(height: 12.0),
             Container(
               child: Text(
-                "gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP/2 设计，基于protobuf 3.x，基于Netty 4.x +。目前提供 C、Java 和 Go 语言版本",
+                "停电公告---东奥路区域停电检修：尊敬的客户，今07:30至20:00，您户所在的10KV东奥路区域停电检修工作，现因故将延迟大约至23:00恢复供电。由此带来的不便，深表歉意，敬请谅解。",
                 textAlign: TextAlign.justify,
               ),
             ),
             SizedBox(height: 12.0),
             Row(
               children: <Widget>[
-                Text("3小时前", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
+                Text("2019-10-10", style: TextStyle(color: theme.dividerColor, fontSize: 12.0),),
                 Expanded(child: Container(),),
                 Icon(Icons.more_horiz)
               ],
