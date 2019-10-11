@@ -34,7 +34,6 @@ class _TouristAskPageState extends State<TouristAskPage>  with AutomaticKeepAliv
                     snap: true,
                     expandedHeight: 180.0,
                     backgroundColor: theme.backgroundColor,
-                  //  title: Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0, fontFamily: "kaiti"),),
                     flexibleSpace: CustomSpaceBar(
                       title: Text("邻里动态", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0, fontFamily: "kaiti", color: theme.primaryColor),),
                       bottom: Container(
@@ -72,7 +71,7 @@ class _TouristAskPageState extends State<TouristAskPage>  with AutomaticKeepAliv
                           backgroundColor: theme.primaryColor,
                           child: Icon(Icons.person_outline, color: Colors.white,),
                         ),
-                      ),
+                      )
                     ),
                   )
                 ];

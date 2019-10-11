@@ -1,11 +1,8 @@
-// Copyright 2016 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 
 class CustomSpaceBar extends StatefulWidget {
@@ -34,22 +31,39 @@ class CustomSpaceBar extends StatefulWidget {
 }
 
 class _CustomSpaceBarState extends State<CustomSpaceBar> {
+  OverlayEntry overlayEntry;
+  final LayerLink layerLink = LayerLink();
 
-  double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
-    switch (widget.collapseMode) {
-      case CollapseMode.pin:
-        return -(settings.maxExtent - settings.currentExtent);
-      case CollapseMode.none:
-        return 0.0;
-      case CollapseMode.parallax:
-        final double deltaExtent = settings.maxExtent - settings.minExtent;
-        return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
-    }
-    return null;
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance.addPostFrameCallback((_) => setState(() {
+      this.overlayEntry = this.createOverlayEntry();
+      Overlay.of(context).insert(this.overlayEntry);
+    }));
+  }
+
+  OverlayEntry createOverlayEntry() {
+    RenderBox renderBox = context.findRenderObject();
+    var size = renderBox.size;
+
+    return OverlayEntry(
+        builder: (context) => Positioned(
+          width: 40.0,
+          height: 40.0,
+          child: CompositedTransformFollower(
+            link: this.layerLink,
+            showWhenUnlinked: false,
+            offset: Offset(size.width - 56.0, - 52.0),
+            child: widget.action
+          ),
+        )
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+
     final ThemeData theme = Theme.of(context);
     final FlexibleSpaceBarSettings settings = context.inheritFromWidgetOfExactType(FlexibleSpaceBarSettings);
     assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
@@ -102,17 +116,9 @@ class _CustomSpaceBarState extends State<CustomSpaceBar> {
         children.add(Container(
           child: Opacity(
             opacity: opacity,
-            child: Stack(
-              overflow: Overflow.visible,
-              alignment: Alignment.topRight,
-              children: <Widget>[
-                widget.bottom,
-                Positioned(
-                  top: -52.0,
-                  right: 16.0,
-                  child: widget.action
-                )
-              ],
+            child: CompositedTransformTarget(
+              link: this.layerLink,
+              child: widget.bottom,
             )
           ),
         ));

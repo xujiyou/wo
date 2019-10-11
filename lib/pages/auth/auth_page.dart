@@ -44,14 +44,14 @@ class _AuthPageState extends State<AuthPage> {
   void submit() async {
     phoneFocusNode.unfocus();
     passFocusNode.unfocus();
-    Map map = await AuthApi.login(phoneController.text, passController.text);
-    log("登录结果：" + map.toString());
-    String id = map["id"] ?? "", token =  map["token"] ?? "";
+//    Map map = await AuthApi.login(phoneController.text, passController.text);
+//    log("登录结果：" + map.toString());
+    String id = "123456", token = "123456";
     if (id != "" && token != "") {
       await saveTokenToCache(id, phoneController.text, token, passController.text);
       loginSuccess();
     } else {
-      String errMsg = map["errMsg"];
+      String errMsg = "errmsg";
       if (errMsg == "302") {
         alert('手机号或密码错误', '请重新检查手机号与密码', AuthErrType.TEXT_ERR);
       } else {
