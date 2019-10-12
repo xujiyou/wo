@@ -22,10 +22,11 @@ class HomeSwiperIndicator extends SwiperIndicator {
       height: kToolbarHeight,
       decoration: BoxDecoration(
         color: theme.cardColor.withOpacity(0),
+        border: Border(top: BorderSide(color: theme.backgroundColor.withOpacity(0.8)))
       ),
       child: Row(
         children: List.generate(itemCount, (_index) {
-          Color barColor = theme.textTheme.body1.color.withOpacity(0.5);
+          Color barColor = theme.primaryColor;
           if (_index == index) barColor = theme.accentColor;
 
           return Expanded(
@@ -36,7 +37,7 @@ class HomeSwiperIndicator extends SwiperIndicator {
               child: Container(
                 height: kToolbarHeight,
                 width: double.infinity,
-                color: theme.cardColor.withOpacity(0.9),
+                color: theme.cardColor.withOpacity(0.8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
