@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/pages/user/my_detail_info_edit_page.dart';
 
 class MyDetailInfoPage extends StatefulWidget {
   @override
@@ -24,14 +25,19 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                 icon: Icon(Icons.chevron_left),
               ),
               Expanded(child: Container()),
-              Container(
-                margin: EdgeInsets.only(right: 16.0),
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
-                decoration: BoxDecoration(
-                  color: theme.accentColor,
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (c) => MyDetailInfoEditPage()));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 16.0),
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+                  decoration: BoxDecoration(
+                    color: theme.accentColor,
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))
+                  ),
+                  child: Text("编辑", style: TextStyle(color: Colors.white)),
                 ),
-                child: Text("编辑", style: TextStyle(color: Colors.white)),
               )
             ],
           ),
