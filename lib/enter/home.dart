@@ -42,9 +42,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final GlobalModel globalModel = ScopedModel.of<GlobalModel>(context);
-    if (globalModel.userLoginState == UserLoginState.HOME) {
+    if (globalModel.userLoginState == UserLoginState.USER) {
       home = UserHomePage();
-    } else if (globalModel.userLoginState == UserLoginState.LOGIN) {
+    } else if (globalModel.userLoginState == UserLoginState.NON_AUTH) {
       home = TouristHomePage();
     } else {
       home = _loading();

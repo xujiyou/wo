@@ -5,9 +5,10 @@ import 'package:scoped_model/scoped_model.dart';
 
 /// 用户的状态：
 /// WAIT：未登录，并且未进入登录界面
-/// LOGIN：用户正在登录界面
-/// HOME：用户完成了登录，进入首页
-enum UserLoginState { WAIT, LOGIN, HOME }
+/// NON_AUTH：用户还未进行认证，进入游客界面
+/// USER：用户完成了登录，进入首页
+/// JOIN：用户刚刚完成注册，需要填写一些基本信息
+enum UserLoginState { WAIT, NON_AUTH, USER, JOIN }
 
 GlobalModel globalModel = GlobalModel();
 
@@ -24,10 +25,13 @@ class GlobalModel extends Model {
     SharedPreferencesUtil.handleCache((prefs) {
       String id = prefs.getString("id") ?? "";
       String token = prefs.getString("token") ?? "";
-      if (id == "" || token == "") {
-        _userLoginState = UserLoginState.LOGIN;
+      bool firstJoin = prefs.getBool("firstJoin") ?? false;
+      if (firstJoin) {
+        _userLoginState = UserLoginState.JOIN;
+      } else if (id == "" || token == "") {
+        _userLoginState = UserLoginState.NON_AUTH;
       } else {
-        _userLoginState = UserLoginState.HOME;
+        _userLoginState = UserLoginState.USER;
       }
       log("_userLoginState: " + _userLoginState.toString());
       notifyListeners();

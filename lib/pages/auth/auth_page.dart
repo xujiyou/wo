@@ -1,13 +1,10 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:linli/api/auth_api.dart';
 import 'package:linli/pages/auth/register_invite_page.dart';
 import 'package:linli/scoped_model/global_model.dart';
 import 'package:linli/util/shared_preferences_util.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 enum AuthErrType { NET_ERR, TEXT_ERR }
 
@@ -18,9 +15,9 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   FocusNode phoneFocusNode = FocusNode();
-  FocusNode passFocusNode = FocusNode();
+  FocusNode codeFocusNode = FocusNode();
   TextEditingController phoneController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  TextEditingController codeController = TextEditingController();
   Timer timer;
   int seconds = 60;
 
@@ -47,9 +44,7 @@ class _AuthPageState extends State<AuthPage> {
   void findPhoneFromCache() {
     SharedPreferencesUtil.handleCache((prefs) {
       String phone = prefs.getString("phone") ?? "";
-      String password = prefs.getString("password") ?? "";
       phoneController.text = phone;
-      passController.text = password;
     });
   }
 
@@ -60,12 +55,16 @@ class _AuthPageState extends State<AuthPage> {
 
   void submit() async {
     phoneFocusNode.unfocus();
-    passFocusNode.unfocus();
+    codeFocusNode.unfocus();
 //    Map map = await AuthApi.login(phoneController.text, passController.text);
 //    log("登录结果：" + map.toString());
     String id = "123456", token = "123456";
     if (id != "" && token != "") {
-      await saveTokenToCache(id, phoneController.text, token, passController.text);
+      await saveTokenToCache(
+        userId: id,
+        phone: phoneController.text,
+        token: token
+      );
       loginSuccess();
     } else {
       String errMsg = "errmsg";
@@ -78,13 +77,11 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   /// 缓存用户 id 和 token
-  Future saveTokenToCache(
-      String userId, String phone, String token, String password) async {
+  Future saveTokenToCache({String userId, String phone, String token}) async {
     await SharedPreferencesUtil.handleCache((prefs) {
       prefs.setString("phone", phone);
       prefs.setString("id", userId);
       prefs.setString("token", token);
-      prefs.setString("password", password);
     });
   }
 
@@ -93,13 +90,11 @@ class _AuthPageState extends State<AuthPage> {
     Widget button;
     if (authErr == AuthErrType.NET_ERR) {
       button = FlatButton(
-          child: Text('OK',
-              style: TextStyle(color: Theme.of(context).accentColor)),
+          child: Text('OK', style: TextStyle(color: Theme.of(context).accentColor)),
           onPressed: () => Navigator.of(context).pop());
     } else {
       button = FlatButton(
-          child: Text('检查',
-              style: TextStyle(color: Theme.of(context).accentColor)),
+          child: Text('检查', style: TextStyle(color: Theme.of(context).accentColor)),
           onPressed: () {
             Navigator.of(context).pop();
             setState(() {});
@@ -143,7 +138,7 @@ class _AuthPageState extends State<AuthPage> {
         onSubmitted: (text) {
           if (text.isNotEmpty) {
             phoneFocusNode.unfocus();
-            FocusScope.of(context).requestFocus(passFocusNode);
+            FocusScope.of(context).requestFocus(codeFocusNode);
           }
         },
         onChanged: (text) => setState(() {}),
@@ -181,8 +176,8 @@ class _AuthPageState extends State<AuthPage> {
                 if (text.isNotEmpty) submit();
               },
               onChanged: (text) => setState(() {}),
-              focusNode: passFocusNode,
-              controller: passController,
+              focusNode: codeFocusNode,
+              controller: codeController,
               cursorColor: primaryColor,
               keyboardType: TextInputType.text,
               style: TextStyle(color: Colors.white, letterSpacing: 1.0),
@@ -239,7 +234,11 @@ class _AuthPageState extends State<AuthPage> {
         shape: StadiumBorder(),
         color: theme.primaryColor,
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (c) => RegisterInvitePage()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (c) => RegisterInvitePage())).then((result) {
+            if (result != null) {
+
+            }
+          });
         },
         child: Text(
           "通过邀请码加入",
@@ -297,7 +296,7 @@ class _AuthPageState extends State<AuthPage> {
         onTap: () {
           //点击页面任意一个地方，取消对文本框的聚焦
           phoneFocusNode.unfocus();
-          passFocusNode.unfocus();
+          codeFocusNode.unfocus();
         },
         child: MaterialApp(
             theme: theme.copyWith(primaryColorBrightness: Brightness.light),
