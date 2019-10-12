@@ -48,7 +48,7 @@ class _AboutPageState extends State<AboutPage> {
                       Row(
                         children: <Widget>[
                           SizedBox(width: 32.0,),
-                          Text("邻里社区", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                          Text("邻里社区", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: "kaiti")),
                           SizedBox(width: 12.0,),
                           Container(
                             width: 0.4,
@@ -56,7 +56,7 @@ class _AboutPageState extends State<AboutPage> {
                             color: theme.textTheme.body1.color,
                           ),
                           SizedBox(width: 12.0,),
-                          Text("发现你的邻居"),
+                          Text("发现你的邻居", style: TextStyle(fontFamily: "kaiti"),),
                           Expanded(child: Container())
                         ],
                       ),
@@ -73,11 +73,26 @@ class _AboutPageState extends State<AboutPage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text("成都维度视野科技有限公司", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                                    Text("成都维度视野科技有限公司", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, fontFamily: "kaiti")),
                                     SizedBox(height: 8.0),
-                                    Text("联系方式：1101101110", style: TextStyle()),
-                                    Text("邮箱：x110110110", style: TextStyle()),
-                                    Text("网址：https://www.linli.tech", style: TextStyle()),
+                                    Row(
+                                      children: <Widget>[
+                                        Text("联系方式：", style: TextStyle(fontFamily: "kaiti", fontWeight: FontWeight.bold)),
+                                        Text("17051105603")
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text("邮箱：", style: TextStyle(fontFamily: "kaiti", fontWeight: FontWeight.bold)),
+                                        Text("12345667@qq.com")
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text("网址：", style: TextStyle(fontFamily: "kaiti", fontWeight: FontWeight.bold)),
+                                        Text("https://www.linli.tech")
+                                      ],
+                                    )
                                   ],
                                 ),
                               )
@@ -104,7 +119,7 @@ class _AboutPageState extends State<AboutPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                          Text("邻里社区", style: TextStyle(color: Colors.white, fontSize: 18.0, fontFamily: "kaiti")),
                           SizedBox(height: 2.0),
                           Text("https://www.linli.tech", style: TextStyle(color: Colors.white, fontSize: 10.0)),
                         ],

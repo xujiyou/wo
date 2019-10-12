@@ -48,9 +48,9 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("张三", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, fontFamily: "kaiti")),
+                        Text("张三·1-3-501", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, fontFamily: "kaiti")),
                         SizedBox(height: 4.0),
-                        Text("就想用一句话来描述自己", style: TextStyle(fontSize: 12.0),)
+                        Text("非常想用一句话来介绍自己", style: TextStyle(fontSize: 12.0),)
                       ],
                     )
                   ],
