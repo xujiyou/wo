@@ -163,12 +163,6 @@ class _MyCommunityInfoPageState extends State<MyCommunityInfoPage> {
               )
           ),
           SizedBox(height: 12.0),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            width: double.infinity,
-            height: 0.4,
-            color: theme.dividerColor,
-          ),
           SizedBox(height: 60.0),
         ],
       ),

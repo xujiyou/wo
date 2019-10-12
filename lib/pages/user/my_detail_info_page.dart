@@ -113,7 +113,7 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                   child: Row(
                     children: <Widget>[
                       SizedBox(width: 12.0,),
-                      Icon(Icons.view_compact, color: theme.dividerColor,),
+                      Icon(Icons.view_compact, color: theme.dividerColor, size: 20.0,),
                       SizedBox(width: 20.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                   child: Row(
                     children: <Widget>[
                       SizedBox(width: 12.0,),
-                      Icon(Icons.phone_iphone, color: theme.dividerColor,),
+                      Icon(Icons.phone_iphone, color: theme.dividerColor, size: 20.0,),
                       SizedBox(width: 20.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,7 +149,7 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                   child: Row(
                     children: <Widget>[
                       SizedBox(width: 12.0,),
-                      Icon(Icons.label_outline, color: theme.dividerColor,),
+                      Icon(Icons.label_outline, color: theme.dividerColor, size: 20.0,),
                       SizedBox(width: 20.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +167,7 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                   child: Row(
                     children: <Widget>[
                       SizedBox(width: 12.0,),
-                      Icon(Icons.all_inclusive, color: theme.dividerColor,),
+                      Icon(Icons.all_inclusive, color: theme.dividerColor, size: 20.0,),
                       SizedBox(width: 20.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,7 +185,7 @@ class _MyDetailInfoPageState extends State<MyDetailInfoPage> {
                   child: Row(
                     children: <Widget>[
                       SizedBox(width: 12.0,),
-                      Icon(Icons.home, color: theme.dividerColor,),
+                      Icon(Icons.home, color: theme.dividerColor, size: 20.0,),
                       SizedBox(width: 20.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
