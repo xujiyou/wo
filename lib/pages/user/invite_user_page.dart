@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/pages/user/invite_user_history_page.dart';
 
 class InviteUserPage extends StatefulWidget {
   @override
@@ -129,7 +130,9 @@ class _InviteUserPageState extends State<InviteUserPage> {
             margin: EdgeInsets.symmetric(horizontal: 54.0),
             child: FlatButton(
               shape: StadiumBorder(),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => InviteUserHistoryPage()));
+              },
               child: Text("邀请历史", style: TextStyle(color: theme.accentColor, fontFamily: "kaiti")),
             ),
           ),
