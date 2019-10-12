@@ -24,6 +24,7 @@ class _UserHomePageState extends State<UserHomePage> {
   @override
   Widget build(BuildContext context) {
 
+    //修改了官方代码： PageView -> cacheExtent
     return Scaffold(
         body: Swiper(
             indicator: HomeSwiperIndicator(swiperController),

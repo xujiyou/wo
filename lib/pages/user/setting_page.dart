@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linli/pages/common/about_page.dart';
 import 'package:linli/scoped_model/global_model.dart';
 import 'package:linli/util/shared_preferences_util.dart';
 
@@ -68,6 +69,7 @@ class _SettingPageState extends State<SettingPage> {
                 ],
               ),
             ),
+
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
               padding: EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
@@ -92,6 +94,7 @@ class _SettingPageState extends State<SettingPage> {
                 ],
               ),
             ),
+
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
               padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 22.0, bottom: 22.0),
@@ -107,6 +110,28 @@ class _SettingPageState extends State<SettingPage> {
                 ],
               ),
             ),
+
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => AboutPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+                padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 22.0, bottom: 22.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: theme.cardColor,
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Text("关于", style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "kaiti"),),
+                    Expanded(child: Container()),
+                  ],
+                ),
+              ),
+            ),
+
             Container(
               margin: EdgeInsets.only(left: 60.0, right: 60.0, top: 24.0, bottom: 16.0),
               height: 42.0,

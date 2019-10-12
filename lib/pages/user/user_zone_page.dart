@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linli/pages/common/about_page.dart';
 import 'package:linli/pages/common/feedback_page.dart';
 import 'package:linli/pages/user/invite_user_page.dart';
+import 'package:linli/pages/user/my_community_info_page.dart';
 import 'package:linli/pages/user/my_detail_info_page.dart';
 import 'package:linli/pages/user/setting_page.dart';
 
@@ -84,7 +85,7 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
 
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (c) => AboutPage()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (c) => MyCommunityInfoPage()));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -98,10 +99,10 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
                   children: <Widget>[
                     CircleAvatar(
                       backgroundColor: theme.backgroundColor,
-                      child: Icon(Icons.center_focus_strong, color: theme.primaryColor, size: 18.0),
+                      child: Icon(FontAwesomeIcons.audible, color: theme.primaryColor, size: 14.0),
                     ),
                     SizedBox(width: 12.0),
-                    Text("关于")
+                    Text("社区")
                   ],
                 ),
               ),
@@ -123,7 +124,7 @@ class _UserZonePageState extends State<UserZonePage> with AutomaticKeepAliveClie
                   children: <Widget>[
                     CircleAvatar(
                       backgroundColor: theme.backgroundColor,
-                      child: Icon(Icons.flag, color: theme.primaryColor, size: 18.0,),
+                      child: Icon(FontAwesomeIcons.flag, color: theme.primaryColor, size: 14.0,),
                     ),
                     SizedBox(width: 12.0),
                     Text("反馈")
