@@ -52,7 +52,7 @@ class _InviteUserPageState extends State<InviteUserPage> {
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
                         hintText: "栋",
-                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0)
+                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0, fontFamily: "kaiti")
                     ),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _InviteUserPageState extends State<InviteUserPage> {
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
                         hintText: "单元",
-                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0)
+                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0, fontFamily: "kaiti")
                     ),
                   ),
                 ),
@@ -86,7 +86,7 @@ class _InviteUserPageState extends State<InviteUserPage> {
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
                         hintText: "层",
-                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0)
+                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0, fontFamily: "kaiti")
                     ),
                   ),
                 ),
@@ -100,7 +100,7 @@ class _InviteUserPageState extends State<InviteUserPage> {
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
                         hintText: "门牌号， 如501",
-                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0)
+                        hintStyle: TextStyle(color: theme.hintColor, fontSize: 14.0, fontFamily: "kaiti")
                     ),
                   ),
                 ),
@@ -116,7 +116,7 @@ class _InviteUserPageState extends State<InviteUserPage> {
               color: theme.accentColor,
               shape: StadiumBorder(),
               onPressed: () {},
-              child: Text("邀请", style: TextStyle(color: Colors.white, fontFamily: "kaiti")),
+              child: Text("邀请", style: TextStyle(color: Colors.white, fontFamily: "kaiti", fontWeight: FontWeight.bold)),
             ),
           ),
           SizedBox(height: 20.0,),

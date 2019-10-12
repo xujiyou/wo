@@ -72,6 +72,7 @@ class _TouristUserPageState extends State<TouristUserPage> with AutomaticKeepAli
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text("栋"),
+                      SizedBox(height: 8.0,),
                       for (int i = 1; i < 22; i++)
                         FlatButton(
                           color: theme.cardColor,

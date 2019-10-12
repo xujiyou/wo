@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:linli/pages/auth/business_card_make_page.dart';
 
 class RegisterInvitePage extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class _RegisterInvitePageState extends State<RegisterInvitePage> {
 
   void submit() {
 
+    Navigator.of(context).push(MaterialPageRoute(builder: (c) => BusinessCardMakePage()));
   }
 
   void validatePhone() async {
@@ -160,8 +162,9 @@ class _RegisterInvitePageState extends State<RegisterInvitePage> {
           height: height,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: ExactAssetImage("asset/images/wall.jpeg"),
-                fit: BoxFit.cover),
+              image: ExactAssetImage("asset/images/wall.jpeg"),
+              fit: BoxFit.cover
+            ),
           ),
           child: Container(
             color: Colors.black.withOpacity(0.46),

@@ -78,6 +78,7 @@ class _UserListPageState extends State<UserListPage> with AutomaticKeepAliveClie
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text("栋"),
+                    SizedBox(height: 8.0,),
                     for (int i = 1; i < 22; i++)
                       FlatButton(
                         color: theme.cardColor,
