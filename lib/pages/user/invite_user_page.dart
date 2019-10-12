@@ -46,9 +46,8 @@ class _InviteUserPageState extends State<InviteUserPage> {
                 Expanded(
                   child: TextField(
                     focusNode: buildFocus,
-                    cursorColor: theme.accentColor,
-                    cursorWidth: 1.0,
                     controller: buildController,
+                    cursorColor: theme.primaryColor,
                     keyboardType: TextInputType.number,
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
@@ -61,9 +60,8 @@ class _InviteUserPageState extends State<InviteUserPage> {
                 Expanded(
                   child: TextField(
                     focusNode: unitFocus,
-                    cursorColor: theme.accentColor,
-                    cursorWidth: 1.0,
                     controller: unitController,
+                    cursorColor: theme.primaryColor,
                     keyboardType: TextInputType.number,
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
@@ -82,9 +80,8 @@ class _InviteUserPageState extends State<InviteUserPage> {
                 Expanded(
                   child: TextField(
                     focusNode: floorFocus,
-                    cursorColor: theme.accentColor,
-                    cursorWidth: 1.0,
                     controller: floorController,
+                    cursorColor: theme.primaryColor,
                     keyboardType: TextInputType.number,
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
@@ -97,9 +94,8 @@ class _InviteUserPageState extends State<InviteUserPage> {
                 Expanded(
                   child: TextField(
                     focusNode: doorFocus,
-                    cursorColor: theme.accentColor,
-                    cursorWidth: 1.0,
                     controller: doorController,
+                    cursorColor: theme.primaryColor,
                     keyboardType: TextInputType.number,
                     style: TextStyle(color: theme.textTheme.body1.color, fontSize: 14.0),
                     decoration: InputDecoration(
