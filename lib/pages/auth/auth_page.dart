@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linli/api/auth_api.dart';
+import 'package:linli/pages/auth/register_invite_page.dart';
 import 'package:linli/scoped_model/global_model.dart';
 import 'package:linli/util/shared_preferences_util.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -237,7 +238,9 @@ class _AuthPageState extends State<AuthPage> {
       child: FlatButton(
         shape: StadiumBorder(),
         color: theme.primaryColor,
-        onPressed: () => submit(),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (c) => RegisterInvitePage()));
+        },
         child: Text(
           "通过邀请码加入",
           style: TextStyle(color: Colors.white, fontSize: 16.0, fontFamily: "kaiti"),
@@ -251,7 +254,7 @@ class _AuthPageState extends State<AuthPage> {
           height: height,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: ExactAssetImage("asset/images/wall.jpg"),
+                image: ExactAssetImage("asset/images/wall.jpeg"),
                 fit: BoxFit.cover),
           ),
           child: Container(
