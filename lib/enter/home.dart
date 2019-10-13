@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:linli/pages/join/business_card_make_page.dart';
 import 'package:linli/pages/tourist_home_page.dart';
 import 'package:linli/pages/user_home_page.dart';
 import 'package:linli/scoped_model/global_model.dart';
@@ -46,6 +47,8 @@ class _HomeState extends State<Home> {
       home = UserHomePage();
     } else if (globalModel.userLoginState == UserLoginState.NON_AUTH) {
       home = TouristHomePage();
+    } else if (globalModel.userLoginState == UserLoginState.JOIN) {
+      home = BusinessCardMakePage();
     } else {
       home = _loading();
     }

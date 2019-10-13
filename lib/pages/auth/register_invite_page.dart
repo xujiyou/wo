@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:linli/pages/auth/business_card_make_page.dart';
+import 'package:linli/pages/join/business_card_make_page.dart';
+import 'package:linli/util/shared_preferences_util.dart';
 
 class RegisterInvitePage extends StatefulWidget {
   @override
@@ -17,10 +18,23 @@ class _RegisterInvitePageState extends State<RegisterInvitePage> {
   FocusNode codeFocus = FocusNode();
   Timer timer;
   int seconds = 60;
+  String id = "123456", token = "123456";
+  void submit() async {
+    await saveTokenToCache(
+        userId: id,
+        phone: phoneController.text,
+        token: token
+    );
+    Navigator.of(context).pop(true);
+  }
 
-  void submit() {
-
-    Navigator.of(context).push(MaterialPageRoute(builder: (c) => BusinessCardMakePage()));
+  Future saveTokenToCache({String userId, String phone, String token}) async {
+    await SharedPreferencesUtil.handleCache((prefs) {
+      prefs.setString("phone", phone);
+      prefs.setString("id", userId);
+      prefs.setString("token", token);
+      prefs.setBool("firstJoin", true);
+    });
   }
 
   void validatePhone() async {

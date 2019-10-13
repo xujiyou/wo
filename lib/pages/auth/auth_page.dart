@@ -236,7 +236,7 @@ class _AuthPageState extends State<AuthPage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (c) => RegisterInvitePage())).then((result) {
             if (result != null) {
-
+              loginSuccess();
             }
           });
         },
